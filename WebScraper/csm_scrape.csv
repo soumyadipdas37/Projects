@@ -1,0 +1,61 @@
+Title,Summary,FullArticleLink
+How CEOs think,"
+
+
+Recently, Twitter was hacked. CEOs who read about this in the news ask how they can protect themselves from similar threats. The following tweet expresses our frustration with CEOs, that they don't listen to their own people, but instead want to buy a magic pill (a product) or listen to outside consultants (like Gartner). In this post, I describe how CEOs actually think.
+
+
+
+
+
+CEO : ""I read about that Twitter hack. Can that happen to us?""Security : ""Yes, but ...""CEO : ""What products can we buy to prevent this?""Security : ""But ...""CEO : ""Let's call Gartner.""*sobbing sounds*
+— Wim Remes (@wimremes) July 16, 2020
+
+
+
+
+
+
+",https://blog.erratasec.com/2020/07/how-ceos-think.html#more
+In defense of open debate,"
+
+Recently, Harper's published a Letter on Justice and Open Debate. It's a rather boring defense of liberalism and the norm of tolerating differing points of view. Mike Masnick wrote rebuttal on Techdirt. In this post, I'm going to rebut his rebuttal, writing a counter-counter-argument.
+
+The Letter said that the norms of liberalism tolerate disagreement, and that these norms are under attack by increasing illiberalism on both sides, both the left and the right.
+
+My point is this: Masnick avoids the rebutting the letter. He's recycling his arguments against right-wingers who want their speech coddled, rather than the addressing the concerns of (mostly) left-wingers worried about the fanaticism on their own side.
+
+
+",https://blog.erratasec.com/2020/07/in-defense-of-open-debate.html#more
+Apple ARM Mac rumors,"
+The latest rumor is that Apple is going to announce Macintoshes based on ARM processors at their developer conference. I thought I'd write up some perspectives on this.
+
+",https://blog.erratasec.com/2020/06/apple-arm-mac-rumors.html#more
+What is Boolean?,"
+My mother asks the following question, so I'm writing up a blogpost in response.
+
+I am watching a George Boole bio on Prime but still don’t get it.
+I started watching the first few minutes of the ""Genius of George Boole"" on Amazon Prime, and it was garbage. It's the typical content that's been dumbed-down so much that any useful content has been removed. It's the typical sort of hero worshipping biography that credits the subject with everything that it plausible can.
+
+
+",https://blog.erratasec.com/2020/05/what-is-boolean.html#more
+Securing work-at-home apps,"
+In today's post, I answer the following question:
+
+Our customer's employees are now using our corporate application while working from home. They are concerned about security, protecting their trade secrets. What security feature can we add for these customers?
+The tl;dr answer is this: don't add gimmicky features, but instead, take this opportunity to do security things you should already be doing, starting with a ""vulnerability disclosure program"" or ""vuln program"".
+
+",https://blog.erratasec.com/2020/05/securing-work-at-home-apps.html#more
+CISSP is at most equivalent to a 2-year associates degree,"
+There are few college programs for ""cybersecurity"". Instead, people rely upon industry ""certifications"", programs that attempt to certify a person has the requisite skills. The most popular is known as the ""CISSP"". In the news today, European authorities decided a ""CISSP was equivalent to a masters degree"". I think this news is garbled. Looking into the details, studying things like ""UK NARIK RQF level 11"", it seems instead that equivalency isn't with master's ""degrees"" so much as with post-graduate professional awards and certifications that are common in industry. Even then, it places CISSP at too high a level: it's an entry level certification that doesn't require a college degree, and teaches students only familiarity with buzzwords used in the industry rather than the deeper level of understanding of how things work.
+
+
+
+",https://blog.erratasec.com/2020/05/cissp-is-at-most-equivalent-to-2-year.html#more
+About them Zoom vulns...,"
+Today a couple vulnerabilities were announced in Zoom, the popular work-from-home conferencing app. Hackers can possibly exploit these to do evil things to you, such as steal your password. Because of the COVID-19, these vulns have hit the mainstream media. This means my non-techy friends and relatives have been asking about it. I thought I'd write up a blogpost answering their questions.
+
+The short answer is that you don't need to worry about it. Unless you do bad things, like using the same password everywhere, it's unlikely to affect you. You should worry more about wearing pants on your Zoom video conferences in case you forget and stand up.
+
+
+",https://blog.erratasec.com/2020/04/about-them-zoom-vulns.html#more
