@@ -1,36 +1,35 @@
+
 from bs4 import BeautifulSoup 
 import requests 
 from fpdf import FPDF
-
-
+#https://pyfpdf.readthedocs.io/en/latest/Unicode/index.html
+#mirar si pertenece o no un caracter al pdf
 def errataSec():
     pdf=FPDF()
-    #pdf.cell(100,100,txt="Esto es una",ln=2,align="C")
-    
     source= requests.get('https://blog.erratasec.com')
     soup=BeautifulSoup(source.text,'lxml')
+    cont=0
     for article in soup.find_all('div',class_='date-outer'):
-        try:
-            
-            #title=article.find('div',class_=('date-outer')).h3.a.text
-            title=article.h3.a.text
-            summary=article.find('div',class_=('post-body entry-content')).text
+        try:    
+            title=article.h3.a.get_text()
+            summary=article.find('div',class_=('post-body entry-content')).get_text()
             link=article.find('div',class_='jump-link').a['href']
-            #print(title+summary+link)
-            #print("ESTO ES OTRO ARTICULO")
+            print(title+summary+link)
             print(title.encode('latin-1'))
             pdf.add_page()
             pdf.set_font("Arial",'UI',size=30)
-            pdf.cell(100,40,txt=title.decode('latin-1'),align="C")
-            pdf.ln()
-            pdf.set_font("Arial",size=12)
-            pdf.multi_cell(0,5,txt=summary.decode('latin-1'))
-            #pdf.cell(100,100,txt="Esto es una",ln=2,align="C")
-            pdf.ln()
-        
+            pdf.multi_cell(0,10,txt=str(title+"hola"))
+            pdf.set_font('Arial', '', 14)
+            pdf.multi_cell(0,8,txt=summary.encode('latin-1','replace').decode('latin-1'))
+            cont=cont+1
+            pdf.set_font('Arial','U',size=14)
+            pdf.multi_cell(0,8,txt="Link para leer mas"+"\n"+link)
+            if(cont==3):
+                break
         except Exception as e:
             pass
-    pdf.output("prueba.pdf")
+    
+    pdf.output("cosa.pdf")
 
 errataSec()
  
