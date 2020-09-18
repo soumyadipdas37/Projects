@@ -1,9 +1,15 @@
 
 from bs4 import BeautifulSoup 
 import requests 
+import re
 from fpdf import FPDF
+from cfonts import render,say
 #https://pyfpdf.readthedocs.io/en/latest/Unicode/index.html
 #mirar si pertenece o no un caracter al pdf
+def generateTitle():
+    output=render('News Recover',colors=['red','yellow'],align='center')
+    print(output)
+
 def errataSec():
     pdf=FPDF()
     source= requests.get('https://blog.erratasec.com')
@@ -31,6 +37,44 @@ def errataSec():
     
     pdf.output("cosa.pdf")
 
-errataSec()
- 
+def hackingArticles(palabra):
+    print("\nCTF\n")
+    CTF= requests.get('https://www.hackingarticles.in/ctf-challenges-walkthrough/')
+    soup=BeautifulSoup(CTF.text,'lxml')
+    for article in soup.find_all('p',class_='entry-title'):
+        titleText=article.a.text
+        url=article.a['href']
+        if(re.search(palabra,titleText,re.IGNORECASE)):
+            print("CTF-->"+titleText+"<---URL---> https:"+url)
+
+    print("\nPENETRATION TESTING\n")
+    penetrationTesting= requests.get('https://www.hackingarticles.in/penetration-testing/')
+    soup=BeautifulSoup(penetrationTesting.text,'lxml')
+    for article in soup.find_all('p',class_='entry-title'):
+        titleText=article.a.text
+        url=article.a['href']
+        if(re.search(palabra,titleText,re.IGNORECASE)):
+            print("PT-->"+titleText+"<---URL---> https:"+url)
+    
+    print("\nWEB PENETRATION TESTING\n")
+    webHacking= requests.get('https://www.hackingarticles.in/web-penetration-testing/')
+    soup=BeautifulSoup(webHacking.text,'lxml')
+    for article in soup.find_all('p',class_='entry-title'):
+        titleText=article.a.text
+        url=article.a['href']
+        if(re.search(palabra,titleText,re.IGNORECASE)):
+            print("WH-->"+titleText+"<---URL---> https:"+url)
+
+    print("\nRED TEAMING\n")
+    redTeaming= requests.get('https://www.hackingarticles.in/red-teaming/')
+    soup=BeautifulSoup(redTeaming.text,'lxml')
+    for article in soup.find_all('p',class_='entry-title'):
+        titleText=article.a.text
+        url=article.a['href']
+        if(re.search(palabra,titleText,re.IGNORECASE)):
+            print("RT-->"+titleText+"<---URL---> https:"+url)
+
+    
+
+
 
