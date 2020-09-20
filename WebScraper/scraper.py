@@ -70,9 +70,28 @@ def hackingArticles(palabra):
     soup=BeautifulSoup(redTeaming.text,'lxml')
     for article in soup.find_all('p',class_='entry-title'):
         titleText=article.a.text
-        url=article.a['href']
-        if(re.search(palabra,titleText,re.IGNORECASE)):
+        url = article.a['href']
+        if(re.search(palabra, titleText, re.IGNORECASE)):
             print("RT-->"+titleText+"<---URL---> https:"+url)
+
+def krebsOnSecurity():
+    request= requests.get('https://krebsonsecurity.com/')
+    soup=BeautifulSoup(request.text,'lxml')
+    for article in soup.find_all('div',class_="post-smallerfont"):
+        print("<--ARTICLE-->")
+        print(article.h2.text+"\n")
+        for paragraph in article.find_all('p'):
+            print(paragraph.text)
+        print("\nLINK\n")
+        link=article.find('a',class_="more-link")
+        print(link['href'])
+
+
+        
+
+krebsOnSecurity()
+
+
 
     
 

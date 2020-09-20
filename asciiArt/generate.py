@@ -19,7 +19,7 @@ def pixelsToAscii(image):
     characters=""
     for pixel in pixels:
         simbolo=ASCII_CHARS[pixel//25]
-        if(simbolo=='.' or simbolo==',' or simbolo==':'):
+        if(simbolo=='.'):
             characters=characters+' ' 
         else:   
             characters=characters+simbolo
