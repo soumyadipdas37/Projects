@@ -1,2 +1,4 @@
 1-Buscar mas blogs interesantes para aprender mas
 2-hacer un buscador de articulos de the hacking articles
+3-Generar los articulos por fecha
+4-buscador hacker news

@@ -34,8 +34,7 @@ def errataSec():
                 break
         except Exception as e:
             pass
-    
-    pdf.output("cosa.pdf")
+    pdf.output("errataSec.pdf")
 
 def hackingArticles(palabra):
     print("\nCTF\n")
@@ -75,20 +74,38 @@ def hackingArticles(palabra):
             print("RT-->"+titleText+"<---URL---> https:"+url)
 
 def krebsOnSecurity():
+    pdf=FPDF()
     request= requests.get('https://krebsonsecurity.com/')
     soup=BeautifulSoup(request.text,'lxml')
     for article in soup.find_all('div',class_="post-smallerfont"):
-        print("<--ARTICLE-->")
-        print(article.h2.text+"\n")
-        for paragraph in article.find_all('p'):
-            print(paragraph.text)
-        print("\nLINK\n")
-        link=article.find('a',class_="more-link")
-        print(link['href'])
+        try:
+            print("<--ARTICLE-->")
+            title=article.h2.text
+            pdf.add_page()
+            pdf.set_font("Arial",'UI',size=30)
+            pdf.multi_cell(0,10,txt=title.encode('latin-1','replace').decode('latin-1')+"hola")
+            print(title+"\n")
+
+            pdf.set_font('Arial', '', 14)
+            for paragraph in article.find_all('p'):
+                summary=paragraph.text
+                pdf.multi_cell(0,8,txt=(summary.encode('latin-1','replace').decode('latin-1')).replace("?",'"'))
+                print(summary)
+            print("\nLINK TO READ MORE\n")
+            pdf.set_font('Arial','U',size=14)
+            link=article.find('a',class_="more-link")
+            pdf.multi_cell(0,8,txt="Link para leer mas"+"\n"+link['href'])
+            print(link['href'])
+            print(link)
+        except Exception as e:
+            print("AAAAAAAAAAAAAA")
+            pass
+    print("hola")
+    pdf.output("krebsOnSecurity.pdf")
 
 
         
-
+errataSec()
 krebsOnSecurity()
 
 
